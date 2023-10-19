@@ -22,6 +22,16 @@ _Note:_ You can use `DESTDIR` and `PREFIX` environment variables before running
 
 Use just like regular neovim, but use `mdvim` instead of `nvim`.
 
+## Feature highlights
+
+* [Goyo](https://github.com/junegunn/goyo.vim) enables by default.
+* [vim-dispatch](https://github.com/tpope/vim-dispatch).
+* Dictionary. Use `<S-k>` on a word to get it's definition (requires internet).
+* Word count
+* Line motion is by virtual lines (regular line motions are swapped with `g*`
+  versions)
+
+See [keymap.md](keymap.md) for default key bindings.
 
 ## Configuration
 
