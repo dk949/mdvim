@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -f ".mdvimrc" ]; then
+    RCFILE="'+source ./.mdvimrc'"
+elif [ -f ".mdvimrc.lua" ]; then
+    RCFILE="'+source ./.mdvimrc.lua'"
+else
+    RCFILE=
+fi
+
+CMD="NVIM_APPNAME=mdvim nvim +Goyo $* $RCFILE"
+
+eval "$CMD"
