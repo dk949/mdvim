@@ -30,3 +30,8 @@ Most options are set in `init.lua`. Theme setup is in `lua/onedark_config.lua`.
 Add new plugins by adding `use` lines in `lua/plugins.lua` (it's using
 [packer.nvim](https://github.com/wbthomason/packer.nvim)).
 
+### Local configuration
+
+Additional per-directory configuration can be added in a `.mdvimrc` or `.mdvimrc.lua`
+(vim script and lua respectively). If `mdvim` is launched in a directory with one of
+those files, they will be sourced.
