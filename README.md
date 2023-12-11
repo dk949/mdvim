@@ -30,6 +30,9 @@ Use just like regular neovim, but use `mdvim` instead of `nvim`.
 * Word count
 * Line motion is by virtual lines (regular line motions are swapped with `g*`
   versions)
+* Additional highlighting for `TODO` syntax used by
+  [this](https://gist.github.com/dk949/380da9878c53be01ab2132310af84ba3)
+  todonotes pandoc filter
 
 See [keymap.md](keymap.md) for default key bindings.
 
@@ -39,6 +42,9 @@ Most options are set in `init.lua`. Theme setup is in `lua/onedark_config.lua`.
 
 Add new plugins by adding `use` lines in `lua/plugins.lua` (it's using
 [packer.nvim](https://github.com/wbthomason/packer.nvim)).
+
+If you do not want to have `TODO` notes highlighted, set `g:mdvim_no_todo_hl` to
+`1` (or `true` in lua).
 
 ### Local configuration
 
