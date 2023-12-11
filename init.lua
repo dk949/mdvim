@@ -48,26 +48,28 @@ vim.opt.splitright = true
 
 vim.g.mapleader = " "
 
-vim.keymap.set({ 'v', 'n', 'o' }, "j", "gj", { silent = true, buffer = true })
-vim.keymap.set({ 'v', 'n', 'o' }, "gj", "j", { silent = true, buffer = true })
-vim.keymap.set({ 'v', 'n', 'o' }, "k", "gk", { silent = true, buffer = true })
-vim.keymap.set({ 'v', 'n', 'o' }, "gk", "k", { silent = true, buffer = true })
+vim.keymap.set({ 'v', 'n', 'o' }, "j", "gj", { silent = true })
+vim.keymap.set({ 'v', 'n', 'o' }, "gj", "j", { silent = true })
+vim.keymap.set({ 'v', 'n', 'o' }, "k", "gk", { silent = true })
+vim.keymap.set({ 'v', 'n', 'o' }, "gk", "k", { silent = true })
 
-vim.keymap.set({ 'v', 'n', 'o' }, "0", "g0", { silent = true, buffer = true })
-vim.keymap.set({ 'v', 'n', 'o' }, "$", "g$", { silent = true, buffer = true })
-vim.keymap.set({ 'v', 'n', 'o' }, "g0", "0", { silent = true, buffer = true })
-vim.keymap.set({ 'v', 'n', 'o' }, "g$", "$", { silent = true, buffer = true })
+vim.keymap.set({ 'v', 'n', 'o' }, "0", "g0", { silent = true })
+vim.keymap.set({ 'v', 'n', 'o' }, "$", "g$", { silent = true })
+vim.keymap.set({ 'v', 'n', 'o' }, "g0", "0", { silent = true })
+vim.keymap.set({ 'v', 'n', 'o' }, "g$", "$", { silent = true })
 
-vim.keymap.set('n', "A", "g$a", { silent = true, buffer = true })
-vim.keymap.set('n', "gA", "A", { silent = true, buffer = true })
-vim.keymap.set('n', "I", "g0i", { silent = true, buffer = true })
-vim.keymap.set('n', "gI", "I", { silent = true, buffer = true })
+vim.keymap.set('n',  "A", "g$a", { silent = true })
+vim.keymap.set('n', "gA",   "A", { silent = true })
+vim.keymap.set('n',  "I", "g0i", { silent = true })
+vim.keymap.set('n', "gI",   "I", { silent = true })
 
-vim.keymap.set('n', "G", "Gzz", {silent = true, buffer = true})
-vim.keymap.set('v', "<C-C>", [["*y :let @+=@*<CR>]], {silent = true, buffer = true})
-vim.keymap.set('n', "vv", "V", {silent = true, buffer = true})
-vim.keymap.set('n', "V", "v$", {silent = true, buffer = true})
-vim.keymap.set('n', "Y", "y$", {silent = true, buffer = true})
+vim.keymap.set('n',  "G", "Gzz", {silent = true })
+vim.keymap.set('n', "vv",   "V", {silent = true })
+vim.keymap.set('n',  "V",  "v$", {silent = true })
+vim.keymap.set('n',  "Y",  "y$", {silent = true })
 
-vim.keymap.set('n', "<leader>s", ":update<CR>", {silent = true, buffer = true})
-vim.keymap.set('n', "<leader>m", ":Make!<CR>", {buffer = true})
+vim.keymap.set('v', "<C-C>", [["*y :let @+=@*<CR>]], {silent = true })
+
+vim.keymap.set('n', "<leader>m",  ":Make!<CR>", { })
+vim.keymap.set('n', "<leader>s", ":update<CR>", { silent = true })
+vim.keymap.set('n', "<leader>b",    ":e #<CR>", { silent = true })
