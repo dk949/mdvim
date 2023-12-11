@@ -4,12 +4,11 @@ endif
 
 syn case match
 
-syn region markdownTodo start=/\[TODO:/ end=/\]/ contains=markdownTodoDelim,markdownTodoKw,markdownTodoOpts
+syn match  markdownTodoDelim /\v\[|\]/         contained display
+syn match  markdownTodoKw    /TODO:/           contained display
+syn region markdownTodoOpts start=/;/ end=/\]/ contained
 
-syn match  markdownTodoDelim /\v\[|\]/               contained display
-syn match  markdownTodoKw    /TODO:/                 contained display
-syn region markdownTodoOpts start=/;/ end=/\]/re=e-1 contained
-
+syn region markdownTodo start=/\v\[TODO:/ end=/\v\]/me=e+1 contains=markdownTodoDelim,markdownTodoKw,markdownTodoOpts oneline keepend
 
 
 hi def link markdownTodoOpts  Comment
