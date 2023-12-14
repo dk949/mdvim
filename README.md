@@ -30,9 +30,9 @@ Use just like regular neovim, but use `mdvim` instead of `nvim`.
 * Word count
 * Line motion is by virtual lines (regular line motions are swapped with `g*`
   versions)
-* Additional highlighting for `TODO` syntax used by
-  [this](https://gist.github.com/dk949/380da9878c53be01ab2132310af84ba3)
-  todonotes pandoc filter
+* Additional highlighting and concealing for `TODO` syntax used by
+  [this](https://gist.github.com/dk949/380da9878c53be01ab2132310af84ba3) todonotes pandoc filter.
+* Highlighting and concealing for pandoc citation syntax.
 
 See [keymap.md](keymap.md) for default key bindings.
 
@@ -44,7 +44,9 @@ Add new plugins by adding `use` lines in `lua/plugins.lua` (it's using
 [packer.nvim](https://github.com/wbthomason/packer.nvim)).
 
 If you do not want to have `TODO` notes highlighted, set `g:mdvim_no_todo_hl` to
-`1` (or `true` in lua).
+`1` (or `true` in lua). The same is true for citation highlighting with
+the `g:mdvim_no_cite_hl` variable. Concealment for both is controlled like
+usual with `conceallevel`.
 
 Note that spelling is set to UK English by default (`en_gb`), set the
 `vim.opt.spelllang` in `init.lua` to change (e.g. use `en_us` for US only
