@@ -41,6 +41,7 @@ vim.opt.mouse=nil
 
 -- spelling
 vim.opt.spell = true
+vim.opt.spelllang = 'en_gb'
 
 -- split behaviour
 vim.opt.splitbelow = true

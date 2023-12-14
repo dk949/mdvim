@@ -46,6 +46,10 @@ Add new plugins by adding `use` lines in `lua/plugins.lua` (it's using
 If you do not want to have `TODO` notes highlighted, set `g:mdvim_no_todo_hl` to
 `1` (or `true` in lua).
 
+Note that spelling is set to UK English by default (`en_gb`), set the
+`vim.opt.spelllang` in `init.lua` to change (e.g. use `en_us` for US only
+spelling, or `en` to accept all possible spellings, same with other locales).
+
 ### Local configuration
 
 Additional per-directory configuration can be added in a `.mdvimrc` or `.mdvimrc.lua`

@@ -23,7 +23,11 @@ return function()
         },
 
         colors = {},     -- Override default colors
-        highlights = {}, -- Override highlight groups
+        highlights = {
+            SpellBad  = { fg = '$red'    },
+            SpellCap  = { fg = '$cyan'   },
+            SpellLocal= { fg = "$orange" },
+        }, -- Override highlight groups
 
         diagnostics = {
             darker = true,     -- darker colors for diagnostic
