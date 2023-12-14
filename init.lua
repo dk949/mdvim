@@ -47,6 +47,9 @@ vim.opt.spelllang = 'en_gb'
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+-- conceal
+vim.opt.conceallevel = 2
+
 vim.g.mapleader = " "
 
 vim.keymap.set({ 'v', 'n', 'o' }, "j", "gj", { silent = true })
