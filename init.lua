@@ -30,7 +30,7 @@ vim.opt.laststatus = 2
 vim.opt.showmode = false
 
 -- lines
-vim.opt.formatoptions = "tn1"
+vim.opt.formatoptions = "n1" -- NOTE: add 't' to the list to enable automatic line wrapping
 vim.opt.linebreak = true
 vim.opt.list = false
 vim.opt.textwidth = 80
