@@ -74,6 +74,7 @@ vim.keymap.set('n',  "Y",  "y$", {silent = true })
 
 vim.keymap.set('v', "<C-C>", [["*y :let @+=@*<CR>]], {silent = true })
 
-vim.keymap.set('n', "<leader>m",  ":Make!<CR>", { })
-vim.keymap.set('n', "<leader>s", ":update<CR>", { silent = true })
-vim.keymap.set('n', "<leader>b",    ":e #<CR>", { silent = true })
+vim.keymap.set('n' , "<leader>m"  , ":Make!<CR>"                  , { })
+vim.keymap.set('n' , "<leader>s"  , ":update<CR>"                 , { silent = true })
+vim.keymap.set('n' , "<leader>b"  , ":e #<CR>"                    , { silent = true })
+vim.keymap.set('n' , "<leader>nn" , ":NvimTreeFindFileToggle<CR>" , { silent = true })

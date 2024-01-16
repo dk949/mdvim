@@ -29,5 +29,6 @@ return function()
         use 'tpope/vim-dispatch'
         use 'machakann/vim-highlightedyank'
         use 'tpope/vim-surround'
+        use { 'nvim-tree/nvim-tree.lua', config = require("tree_config") }
     end)
 end
