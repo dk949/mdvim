@@ -26,7 +26,7 @@ vim.opt.smartcase = true
 vim.opt.wildignorecase = true
 
 -- statusline
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3
 vim.opt.showmode = false
 
 -- lines
