@@ -7,3 +7,11 @@ function WordCount()
     endif
     return g:word_count
 endfunction
+
+function ResetStatus(cfg, fg, bg)
+    set statusline=%=%{WordCount()}
+    exe 'hi statusline ctermfg=' . a:cfg . ' guifg=' . a:fg . ' guibg='. a:bg
+    set laststatus=2
+    set ruler
+    set showcmd
+endfunction

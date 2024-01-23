@@ -4,24 +4,32 @@ OD_dstyle = 'warm'
 OD_lstyle = 'light'
 OD_current = OD_dstyle
 
+---Get onedark highlighting
+---@param style string which style to get highlights for
+---@return table -- Spelling and float highlights
+---@return string -- ctermfg setting
+---@return string -- guifg setting
+---@return string -- guibg setting
 function OD_getHighlights(style)
     local p = require('onedark.palette')
+    local cfg = style == OD_dstyle and "white" or "black"
     return {
         SpellBad    = { fg = '$red' },
         SpellCap    = { fg = '$cyan' },
         SpellLocal  = { fg = "$orange" },
         NormalFloat = { fg = p[style].fg, bg = p[style].bg_d },
-    }
+    }, cfg, p[style].fg, p[style].bg0
 end
 
 function OdToggle()
     local od = require('onedark')
     -- NOTE: This is set *BEFORE* changing the OD_current style
     --       I'm not sure why
-    od.set_options('highlights', OD_getHighlights(OD_current))
     if OD_current == OD_dstyle then OD_current = OD_lstyle else OD_current = OD_dstyle end
+    local hl, cfg, fg, bg = OD_getHighlights(OD_current)
+    od.set_options('highlights', hl)
     od.toggle()
-    od.load()
+    vim.fn.ResetStatus(cfg, fg, bg)
 end
 
 return function()
@@ -36,7 +44,7 @@ return function()
         ending_tildes = false,
         cmp_itemkind_reverse = true,
 
-        toggle_style_list = { OD_dstyle, OD_lstyle },
+        toggle_style_list = { OD_lstyle, OD_dstyle, },
 
         -- italic, bold, underline, none
         -- or any combination e.g. 'italic,bold'
@@ -52,8 +60,8 @@ return function()
             transparent = false, -- lualine center bar transparency
         },
 
-        colors = {},                              -- Override default colors
-        highlights = OD_getHighlights(OD_lstyle), -- Override highlight groups
+        colors = {},                               -- Override default colors
+        highlights = OD_getHighlights(OD_current), -- Override highlight groups
 
         diagnostics = {
             darker     = true, -- darker colors for diagnostic

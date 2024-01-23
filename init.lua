@@ -3,14 +3,25 @@ require "plugins" ()
 vim.api.nvim_create_autocmd("User", {
     pattern = "GoyoLeave",
     command = "norm! ZZ",
+    nested = true,
 })
 
+local function reset_status() return vim.fn.ResetStatus(select(2, OD_getHighlights(OD_current))) end
+
+-- Run the initial setup when entering Goyo, then unregister the autocmd
+-- If the autogroup is created immediately it gets overriden when goyo is loaded (after this script)
 vim.api.nvim_create_autocmd("User", {
     pattern = "GoyoEnter",
     callback = function()
-        vim.opt.statusline = [[%=%{WordCount()}]]
-        vim.cmd [[hi statusline ctermfg=white guifg=#abb2bf guibg=#2c2d30]]
+        reset_status()
+        vim.api.nvim_create_autocmd({ "WinEnter", "WinLeave", "BufWinEnter" }, {
+            pattern = "*",
+            callback = reset_status,
+            group = vim.api.nvim_create_augroup("mdvim", {}),
+        })
     end,
+    nested = true,
+    once = true,
 })
 -- tabs
 vim.opt.expandtab = true
@@ -32,6 +43,7 @@ vim.opt.showmode = false
 -- lines
 vim.opt.formatoptions = "n1" -- NOTE: add 't' to the list to enable automatic line wrapping
 vim.opt.linebreak = true
+vim.opt.breakat:remove('@')  -- Don't break after '@', for citations
 vim.opt.list = false
 vim.opt.textwidth = 80
 vim.opt.wrap = true
