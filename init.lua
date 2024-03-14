@@ -43,11 +43,22 @@ vim.opt.laststatus = 3
 vim.opt.showmode = false
 
 -- lines
-vim.opt.formatoptions = "n1" -- NOTE: add 't' to the list to enable automatic line wrapping
-vim.opt.linebreak = true
-vim.opt.breakat:remove('@')  -- Don't break after '@', for citations
-vim.opt.list = false
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "bib",
+    callback = function()
+        vim.opt_local.formatoptions = ""
+        vim.opt_local.textwidth = 0
+        vim.opt_local.shiftwidth = 4
+        vim.opt_local.softtabstop = 4
+        vim.opt_local.tabstop = 4
+    end,
+    group = mdvim_group,
+})
+vim.opt.formatoptions = "atn1"
 vim.opt.textwidth = 80
+vim.opt.linebreak = true
+vim.opt.breakat:remove('@') -- Don't break after '@', for citations
+vim.opt.list = false
 vim.opt.wrap = true
 
 -- mouse
