@@ -8,6 +8,4 @@ else
     RCFILE=
 fi
 
-CMD="NVIM_APPNAME=mdvim nvim +Goyo $* $RCFILE"
-
-eval "$CMD"
+NVIM_APPNAME=mdvim exec nvim +Goyo "$@" $RCFILE
