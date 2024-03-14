@@ -8,6 +8,8 @@ vim.api.nvim_create_autocmd("User", {
 
 local function reset_status() return vim.fn.ResetStatus(select(2, OD_getHighlights(OD_current))) end
 
+local mdvim_group = vim.api.nvim_create_augroup("mdvim", {})
+
 -- Run the initial setup when entering Goyo, then unregister the autocmd
 -- If the autogroup is created immediately it gets overriden when goyo is loaded (after this script)
 vim.api.nvim_create_autocmd("User", {
@@ -17,7 +19,7 @@ vim.api.nvim_create_autocmd("User", {
         vim.api.nvim_create_autocmd({ "WinEnter", "WinLeave", "BufWinEnter" }, {
             pattern = "*",
             callback = reset_status,
-            group = vim.api.nvim_create_augroup("mdvim", {}),
+            group = mdvim_group,
         })
     end,
     nested = true,
