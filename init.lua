@@ -27,9 +27,9 @@ vim.api.nvim_create_autocmd("User", {
 })
 -- tabs
 vim.opt.expandtab = true
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = 2
-vim.opt.tabstop = 2
+vim.opt_local.shiftwidth = 4
+vim.opt_local.softtabstop = 4
+vim.opt_local.tabstop = 4
 
 -- search
 vim.opt.hlsearch = false
@@ -48,16 +48,25 @@ vim.api.nvim_create_autocmd("FileType", {
     callback = function()
         vim.opt_local.formatoptions = ""
         vim.opt_local.textwidth = 0
-        vim.opt_local.shiftwidth = 4
-        vim.opt_local.softtabstop = 4
-        vim.opt_local.tabstop = 4
     end,
     group = mdvim_group,
 })
-vim.opt.formatoptions = "atn1"
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        vim.opt_local.formatoptions = "q/rcatn1j"
+        vim.opt_local.textwidth = 0
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.softtabstop = 2
+        vim.opt_local.tabstop = 2
+        vim.opt_local.breakat:remove('@') -- Don't break after '@', for citations
+    end,
+    group = mdvim_group,
+})
+vim.opt.formatoptions = "tcr/qn1j"
 vim.opt.textwidth = 80
 vim.opt.linebreak = true
-vim.opt.breakat:remove('@') -- Don't break after '@', for citations
 vim.opt.list = false
 vim.opt.wrap = true
 
