@@ -85,6 +85,7 @@ vim.opt.splitright = true
 vim.opt.conceallevel = 2
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = vim.g.mapleader
 
 vim.keymap.set({ 'v', 'n', 'o' }, "j", "gj", { silent = true })
 vim.keymap.set({ 'v', 'n', 'o' }, "gj", "j", { silent = true })
