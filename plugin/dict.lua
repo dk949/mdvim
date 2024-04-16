@@ -15,7 +15,7 @@ vim.keymap.set('n', '<S-k>', function()
     vim.g.mdvim_dict_output = dict(word)
     vim.cmd[[put =mdvim_dict_output]]
     vim.g.mdvim_dict_output = nil
-    -- vim.cmd[[0]]
+    vim.cmd[[0]]
 end)
 
 
