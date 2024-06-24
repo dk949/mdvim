@@ -19,6 +19,8 @@ vim.g.highlightedyank_highlight_duration = 1000
 vim.g.vimtex_compiler_silent = true
 vim.g.vimtex_view_automatic = true
 
+vim.g.bullets_enabled_file_types = { 'markdown' }
+
 return function()
     if not ensure_packer() then return end
 
@@ -33,6 +35,7 @@ return function()
         use 'machakann/vim-highlightedyank'
         use 'tpope/vim-surround'
         use 'lervag/vimtex'
+        use { 'bullets-vim/bullets.vim' }
         use { 'nvim-tree/nvim-tree.lua', config = require("tree_config") }
     end)
 end

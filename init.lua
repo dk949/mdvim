@@ -84,6 +84,12 @@ vim.opt.splitright = true
 -- conceal
 vim.opt.conceallevel = 2
 
+-- folding
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "GoyoEnter",
+    command = "normal zR"
+})
 vim.g.mapleader = " "
 vim.g.maplocalleader = vim.g.mapleader
 
