@@ -90,6 +90,12 @@ vim.api.nvim_create_autocmd("User", {
     pattern = "GoyoEnter",
     command = "normal zR"
 })
+
+-- scrolling
+vim.wo.smoothscroll = true
+
+-- keymap
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = vim.g.mapleader
 
