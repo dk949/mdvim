@@ -72,7 +72,7 @@ vim.opt.list = false
 vim.opt.wrap = true
 
 -- mouse
-vim.opt.mouse = nil
+vim.opt.mouse = ""
 
 -- spelling
 vim.opt.spell = true
