@@ -55,6 +55,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "markdown",
     callback = function()
+        vim.opt_local.formatlistpat = [=[^\s*[a-z]\.\s\+\|^\s*\d\+\.\s\+\|^\s*[-*+]\s\+\|^\[^\ze[^\]]\+\]:\&^.\{4\}]=]
         vim.opt_local.formatoptions = "q/rcatn1j"
         vim.opt_local.textwidth = 0
         vim.opt_local.shiftwidth = 2
