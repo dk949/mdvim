@@ -65,7 +65,7 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
     group = mdvim_group,
 })
-vim.opt.formatoptions = "tcr/qn1j"
+vim.opt.formatoptions = "tcrqn1"
 vim.opt.textwidth = 80
 vim.opt.linebreak = true
 vim.opt.list = false
